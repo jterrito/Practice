@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Literary Typing Speed Test</title>
+</head>
+
+<body>
+    <header class="masthead">
+        <h1>Test Your Typing Speed</h1>
+    </header>
+    <main class="main">
+        <article class="intro">
+            <p>This is a typing test. Type the quotation and author EXACTLY as you see it. When you have finished the one you are on, click Next to move on to the next quoatation. Good luck!</p>
+        </article><!-- .intro -->
+        <section class="test-area">
+            <div id="origin-text">
+                <p>"How mutable are our feelings, and how strange is that clinging love we have of life even in the excess of misery!" - Mary Shelley</p>
+            </div><!-- #origin-text -->
+
+            <div class="test-wrapper">
+                <textarea id="test-area" name="textarea" rows="6" placeholder="The timer begins the moment you start typing."></textarea>
+            </div><!-- .test-wrapper -->
+
+            <div class="meta">
+                <section id="clock">
+                    <div class="timer">00:00:00</div>
+                </section>
+                <section id="mistakesNo">
+                    <div class="mistakes">Mistakes:</div>
+                    <div class="mistakesNo">0</div>
+                </section>
+                <button id="reset">Start over</button>
+                <button id="next">Next</button>
+            </div><!-- .meta -->
+        </section><!-- .test-area -->
+        <section>
+          <div class="score">
+          <p class="scoreTitle hidden">SCOREBOARD</p>
+          <table class="scoreTable hidden">
+          <tr class="scoreTitleFirstRow">
+            <td>Trial Number</td>
+            <td>Success</td>
+            <td>No of Mistakes</td>
+            <td>Time</td>
+            <td>Avarage(sec/word)</td>
+          </tr>
+          </table>
+          <p class="note hidden">* When the success is x, avarage is not calculated.</p>
+        </div>
+        </section>
+    </main>
+<style>
+/*--------------------------------------------------------------
+Typography
+--------------------------------------------------------------*/
+
+body,
+button,
+input,
+select,
+textarea {
+	font-family: 'Source Sans Pro', 'Helvetica', Arial, sans-serif;
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 15px;
+	font-size: 1.5rem;
+	line-height: 1.6;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+
+code,
+kbd,
+tt,
+var {
+	font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+sup,
+sub {
+	font-size: 75%;
+	height: 0;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	bottom: 1ex;
+}
+
+sub {
+	top: .5ex;
+}
+
+small {
+	font-size: 75%;
+}
+
+big {
+	font-size: 125%;
+}
+
+/*--------------------------------------------------------------
+Layout
+--------------------------------------------------------------*/
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.masthead {
+    padding: 1em 2em;
+    background-color: #0D1B2E;
+    color: white;
+}
+
+.masthead h1 {
+    text-align: center;
+}
+
+.intro {
+    padding: 2em 1em;
+    color: #ffffff;
+    background: #7d2299;
+}
+
+
+.intro p,
+.test-area {
+    margin: 0 auto;
+    max-width: 50vw;
+}
+
+.test-area {
+    margin-bottom: 4em;
+    padding: 0 2em;
+}
+
+.test-wrapper {
+    border: 10px solid grey;
+    border-radius: 10px;
+}
+
+#origin-text {
+    margin: 1em 0;
+    padding: 1em 1em 0;
+    background-color: #ededed;
+		border: 1px solid grey;
+}
+
+#origin-text p {
+    margin: 0;
+    padding-bottom: 1em;
+}
+
+.test-wrapper {
+    height: 200%;
+    display: flex;
+}
+
+.test-wrapper textarea {
+    flex: 1;
+}
+
+.meta {
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.timer {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+#reset {
+    padding: .5em 1em;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: rgb(55, 180, 230);
+    background: white ;
+    border: 10px solid rgb(117, 26, 153);
+}
+
+#reset:hover {
+    color: white;
+    background-color: rgb(238, 138, 185);
+}
+
+#next {
+    padding: .5em 1em;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: rgb(55, 180, 230);
+    background: white ;
+    border: 10px solid rgb(117, 26, 153);
+
+#next:hover {
+    color: #FFFFFF ;
+    background-color: rgb(238, 138, 185);
+
+.score{
+	padding: 1em 2em 1em 2em;
+	color: #ffffff;
+	background: #7d2299;
+  margin-top: 0;
+}
+.scoreTitle{
+ font-size: 2em;
+ font-weight: bold;
+ padding: 0;
+ margin-bottom: 0;
+ margin-top: 0;
+ text-align: center;
+}
+.scoreTable{
+	background: #fff;
+	text-align: center;
+margin-left: auto;
+margin-right: auto;
+}
+
+.scoreTable tr td:nth-child(odd){
+		background: #ccc;
+	}
+
+.scoreTable tr td:nth-child(even){
+		background: #ddd;
+	}
+
+.scoreTitleFirstRow{
+color: black;
+font-weight: bold;
+}
+
+.scoreTable td{
+width: 10vw;
+color: black;
+font-size: 1.2em;
+}
+
+.note{
+	font-size: 1.2em;
+	margin-left: 21vw;
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+p.hidden {
+	font-size: 0;
+}
+
+.scoreTable.hidden{
+ width:0;
+ height: 0;
+ font-size: 0;
+}
+
+.mistakes{
+font-size: 1.2em;
+font-weight: bold;
+}
+
+.mistakesNo{
+	font-size: 1.2em;
+	text-align: center;
+}
+</style>
+<script>
+    const testWrapper = document.querySelector(".test-wrapper");
+const testArea = document.querySelector("#test-area");
+const originText = document.querySelector("#origin-text p").innerHTML;
+const resetButton = document.querySelector("#reset");
+const theTimer = document.querySelector(".timer");
+
+const text2 = "\"It is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife\"-Jane Austen"
+const text3 = "\"Gentle reader, may you never feel what I then felt! May your eyes never shed such stormy, scalding, heart-wrung tears as poured from mine. May you never appeal to Heaven in prayers so hopeless amd so agnoized as in that hour left my lips: for never may you, like me, dread to be the instrument of evil to what you wholly love\"-Charlotte Bronte"
+const text4 = "\"The instant her voice broke off, ceasing to compel my attention, my belief, I felt the basic insincertiy of what she had said. It made me uneasy, as thought the whole evening had been a trick of some sort to exact a contributory emotion from me.\" - F Scott Fitzgerald"
+const text5 = "\"Reason had had nothing to do with his whimsical conversion, which was perhaps the mere freak of a careless manin search of a new sensation, and temporarily impressed by his mother's death.\" - Thomas Hardy"
+
+const textNumber = 0
+const listText = [text1]
+
+var timer = [0,0,0,0];
+var interval;
+var timerRunning = false;
+var trialNumber = 0;
+var success = "x";
+var noOfMistakes = 0;
+var avarage = 0;
+
+// Add leading zero to numbers 9 or below (purely for aesthetics):
+function leadingZero(time) {
+    if (time <= 9) {
+        time = "0" + time;
+    }
+    return time;
+}
+
+// Run a standard minute/second/hundredths timer:
+function runTimer() {
+    let currentTime = leadingZero(timer[0]) + ":" + leadingZero(timer[1]) + ":" + leadingZero(timer[2]);
+    theTimer.innerHTML = currentTime;
+    timer[3]++;
+
+    timer[0] = Math.floor((timer[3]/100)/60);
+    timer[1] = Math.floor((timer[3]/100) - (timer[0] * 60));
+    timer[2] = Math.floor(timer[3] - (timer[1] * 100) - (timer[0] * 6000));
+}
+
+// Match the text entered with the provided text on the page:
+function spellCheck() {
+    let textEntered = testArea.value;
+    let originTextMatch = originText.substring(0,textEntered.length);
+
+    if (textEntered == originText) {
+        success= "OK";
+        addScoreToTable();
+        clearInterval(interval);
+        testWrapper.style.borderColor = "#429890";
+        noOfMistakes = 0;
+    } else {
+        if (textEntered == originTextMatch) {
+            testWrapper.style.borderColor = "#65CCf3";
+        } else {
+            testWrapper.style.borderColor = "#7d2299";
+            ++noOfMistakes;
+            document.querySelector('.mistakesNo').innerHTML= noOfMistakes;
+        }
+    }
+}
+
+// Start the timer:
+function start() {
+    let textEnterdLength = testArea.value.length;
+    if (textEnterdLength === 0 && !timerRunning) {
+        timerRunning = true;
+        interval = setInterval(runTimer, 10);
+    }
+    // console.log(textEnterdLength);
+}
+
+// Reset everything:
+function reset() {
+    if (success !== "OK"){
+      success= "x";
+    addScoreToTable();
+      }
+    clearInterval(interval);
+    interval = null;
+    timer = [0,0,0,0];
+    timerRunning = false;
+    noOfMistakes = 0;
+    success = "x";
+    testArea.value = "";
+    theTimer.innerHTML = "00:00:00";
+    testWrapper.style.borderColor = "grey";
+    document.querySelector('.mistakesNo').innerHTML= noOfMistakes;
+}
+
+// Next quoatation:
+function next(true){
+    if (next){
+        console.log(text1)
+    }
+
+// Event listeners for keyboard input and the reset and next
+testArea.addEventListener("keypress", start, false);
+testArea.addEventListener("keyup", spellCheck, false);
+resetButton.addEventListener("click", reset, false);
+nextButton.addEventListener("click", next, false);
+
+//
+function addScoreBoard(){
+document.querySelector('.scoreTable').classList.toggle("hidden");
+document.querySelector('.scoreTitle').classList.toggle("hidden");
+document.querySelector('.note').classList.toggle("hidden");
+}
+
+
+function addScoreToTable(){
+  ++ trialNumber;
+ trialNumber == 1 ? addScoreBoard() : console.log("Table is there!");
+  success=="OK"? avarage = Math.floor((timer[0]*60+timer[1]+timer[2]/100)/countWords(testArea.value)*100)/100 : avarage="NAN*";
+  let TABLE = document.querySelector(".scoreTable");
+  let TABLETB= TABLE.querySelector("tbody");
+  let newRowText = "<tr><td>"+trialNumber+"</td><td>"+success+"</td><td>"+noOfMistakes+"</td><td>"+theTimer.innerHTML+"</td><td>"+avarage+"</td></tr>";
+  TABLETB.innerHTML += newRowText;
+}
+
+function countWords(text){
+  var arrayText= text.split(" ");
+  return arrayText.length;
+}
+</script>
+</body>
+
+</html>
