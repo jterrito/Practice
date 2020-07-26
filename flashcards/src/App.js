@@ -87,14 +87,12 @@ function App() {
   }
 
   const nextText = () =>{
-    if (textNumber<30){
-    setCurrentTextIndex (currentTextIndex+1)
+    console.log(currentTextIndex);
+    console.log(listText)
+    setCurrentTextIndex (listText.length>currentTextIndex-2 ? currentTextIndex+1:0)
     setNumMistakesClicked(0)
     setNumCorrectClicked(0)
-    setClickedHiragana("")}
-    else {
-      setCurrentTextIndex (0)
-    }
+    setClickedHiragana("")
   }
 
   const deleteText = () =>{
