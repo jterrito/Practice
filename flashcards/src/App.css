@@ -1,0 +1,68 @@
+.App {
+  text-align: center;
+}
+
+.test-wrapper {
+  position: relative;
+  left: 35%;
+  display: flex;
+  max-width: 500px;
+  flex-wrap: wrap;
+}
+
+.clicked-hiragana{
+  color: #ca410b;
+  font-size: larger;
+}
+
+#origin-text{
+  margin: auto;
+  border: 2px solid #ca410b;
+  width: 15%;
+  display: center;
+}
+
+.hiragana-cell {
+  cursor: pointer;
+  border: 3px solid black;
+  padding-top: 1.5vh;
+  display: center;
+  height: 4vh;
+  width:11vh;
+  color: #ca410b;
+  font-size: larger;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
